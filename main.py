@@ -28,41 +28,41 @@ for data in rows:
     for lang in languages:
         translator = Translator(to_lang=lang[0])
         translation = list(data)
-        if not translation[2] and  translation[2] is not None: # bodytype
+        if translation[2] is not None:  # bodytype
             translation[2] = translator.translate(data[2])
-        if not translation[7] and  translation[7] is not None: #modification
+        if translation[7] is not None:  # modification
             translation[7] = translator.translate(data[7])
-        if not translation[8] and  translation[8] is not None: #powertrainArchitecture
+        if translation[8] is not None:  # powertrainArchitecture
             translation[8] = translator.translate(data[8])
-        if not translation[10] and  translation[10] is not None: #startofproduction
+        if translation[10] is not None:  # startofproduction
             translation[10] = translator.translate(data[10])
-        if not translation[19] and  translation[19] is not None: #dragcoefficient
+        if translation[19] is not None:  # dragcoefficient
             translation[19] = translator.translate(data[19])
-        if not translation[29] and  translation[29] is not None: #engineaspiration
+        if translation[29] is not None:  # engineaspiration
             translation[29] = translator.translate(data[29])
-        if not translation[32] and  translation[32] is not None: #fuelSystem
+        if translation[32] is not None:  # fuelSystem
             translation[32] = translator.translate(data[32])
-        if not translation[33] and  translation[33] is not None: #modelEngine
+        if translation[33] is not None:  # modelEngine
             translation[33] = translator.translate(data[33])
-        if not translation[36] and  translation[36] is not None: #positionofcylinders
+        if translation[36] is not None:  # positionofcylinders
             translation[36] = translator.translate(data[36])
-        if not translation[39] and  translation[39] is not None: #drivewheel
+        if translation[39] is not None:  #
             translation[39] = translator.translate(data[39])
-        if not translation[40] and  translation[40] is not None: #frontbrakes
+        if translation[40] is not None:  # frontbrakes
             translation[40] = translator.translate(data[40])
-        if not translation[41] and  translation[41] is not None: #frontsuspension
+        if translation[41] is not None:  # frontsuspension
             translation[41] = translator.translate(data[41])
-        if not translation[43] and  translation[43] is not None: #powersteering
+        if translation[43] is not None:  # powersteering
             translation[43] = translator.translate(data[43])
-        if not translation[44] and  translation[44] is not None: #rearbrakes
+        if translation[44] is not None:  # rearbrakes
             translation[44] = translator.translate(data[44])
-        if not translation[45] and  translation[45] is not None: #rearsuspension
+        if translation[45] is not None:  # rearsuspension
             translation[45] = translator.translate(data[45])
-        if not translation[46] and  translation[46] is not None: #steeringtype
+        if translation[46] is not None:  # steeringtype
             translation[46] = translator.translate(data[46])
-        if not translation[60] and  translation[60] is not None: #enginelocationnumber1
+        if translation[60] is not None:  # enginelocationnumber1
             translation[60] = translator.translate(data[60])
-        if not translation[62] and  translation[62] is not None: #enginelocationnumber2
+        if translation[62] is not None:  # enginelocationnumber2
             translation[62] = translator.translate(data[62])
         query = """
         INSERT INTO """+lang[1]+"""(
