@@ -7,7 +7,7 @@ PGDATABASE="cars"
 PGPASSWORD="hamza"
 PGPORT=5432
 
-offset = 50
+offset = 2
 conn = psycopg2.connect(
         database=PGDATABASE,
         user = PGUSER,
@@ -24,14 +24,15 @@ cur.execute('''select * from en
 rows = cur.fetchall()
 for data in rows:
     print(offset, ": ",data[0])
+    offset = offset+1
     languages = [('fr','fr'), ('es','es'), ('ru','ru'), ('de','de'), ('it','it'), ('Greek','gr'), ('tr','tr'), ('ro','ro'), ('fi','fi'), ('swedish','se'), ('no','no'), ('pl','pl')]
     for lang in languages:
         translator = Translator(to_lang=lang[0])
         translation = list(data)
         if translation[2] is not None:  # bodytype
             translation[2] = translator.translate(data[2])
-        if translation[7] is not None:  # modification
-            translation[7] = translator.translate(data[7])
+        # if translation[7] is not None:  # modification
+        #     translation[7] = translator.translate(data[7])
         if translation[8] is not None:  # powertrainArchitecture
             translation[8] = translator.translate(data[8])
         if translation[10] is not None:  # startofproduction
@@ -46,14 +47,16 @@ for data in rows:
             translation[33] = translator.translate(data[33])
         if translation[36] is not None:  # positionofcylinders
             translation[36] = translator.translate(data[36])
-        if translation[39] is not None:  #
+        if translation[39] is not None:  #drivewheel
             translation[39] = translator.translate(data[39])
         if translation[40] is not None:  # frontbrakes
             translation[40] = translator.translate(data[40])
         if translation[41] is not None:  # frontsuspension
             translation[41] = translator.translate(data[41])
-        if translation[43] is not None:  # powersteering
-            translation[43] = translator.translate(data[43])
+        if translation[42] is not None:  # numberofGears
+            translation[42] = translator.translate(data[42])
+        # if translation[43] is not None:  # powersteering
+        #     translation[43] = translator.translate(data[43])
         if translation[44] is not None:  # rearbrakes
             translation[44] = translator.translate(data[44])
         if translation[45] is not None:  # rearsuspension
@@ -99,7 +102,6 @@ for data in rows:
         except psycopg2.errors.UniqueViolation:
             conn.rollback()
             print("Already added")
-
 
 conn.close()
 print("done")
