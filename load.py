@@ -63,7 +63,7 @@ for data in rows:
             except:
                 result = translator.translate(data[29], src='en', dest=lang[0])
                 translation[29] = result.text
-        time.sleep(1)
+        time.sleep(0.5)
         if translation[32] is not None:  # fuelSystem   done
             try:
                 translation[32] = key['fuelSystem'][data[32]][lang[1]]
@@ -87,7 +87,7 @@ for data in rows:
         if translation[40] is not None:  # frontbrakes
             result = translator.translate(data[40], src='en', dest=lang[0])
             translation[40] = result.text
-            time.sleep(1)
+            time.sleep(0.5)
         if translation[41] is not None:  # frontsuspension
             result = translator.translate(data[41], src='en', dest=lang[0])
             translation[41] = result.text
@@ -102,7 +102,7 @@ for data in rows:
         if translation[44] is not None:  # rearbrakes
             result = translator.translate(data[44], src='en', dest=lang[0])
             translation[44] = result.text
-            time.sleep(1)
+            time.sleep(0.5)
         if translation[45] is not None:  # rearsuspension
             result = translator.translate(data[45], src='en', dest=lang[0])
             translation[45] = result.text
