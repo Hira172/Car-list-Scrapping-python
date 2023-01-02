@@ -38,7 +38,6 @@ for data in rows:
     languages = [('fr','fr'), ('es','es'), ('ru','ru'), ('de','de'), ('it','it'), ('Greek','gr'), ('tr','tr'), ('ro','ro'), ('fi','fi'), ('swedish','se'), ('no','no'), ('pl','pl')]
     for lang in languages:
         translation = list(data)
-        time.sleep(1)
         if translation[1] is not None:  # bodytype done
             try:
                 translation[1] = key['bodytype'][data[1]][lang[1]]
@@ -92,7 +91,6 @@ for data in rows:
         if translation[41] is not None:  # frontsuspension
             result = translator.translate(data[41], src='en', dest=lang[0])
             translation[41] = result.text
-            time.sleep(1)
         # if translation[42] is not None:  # numberofGears
         #     translation[42] = translator.translate(data[42])
         if translation[43] is not None:  # powersteering    done
@@ -108,7 +106,6 @@ for data in rows:
         if translation[45] is not None:  # rearsuspension
             result = translator.translate(data[45], src='en', dest=lang[0])
             translation[45] = result.text
-            time.sleep(1)
         if translation[46] is not None:  # steeringtype done
             try:
                 translation[46] = key['steeringtype'][data[46]][lang[1]]
